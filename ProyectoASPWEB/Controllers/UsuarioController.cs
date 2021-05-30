@@ -106,5 +106,16 @@ namespace ProyectoASPWEB.Controllers
             }
         }
 
+        public ActionResult Details(int id)
+        {
+            //abriendo conexion a la BD
+            using (var db = new inventario2021_2Entities())
+            {
+                //buscar usuario por id
+                usuario user = db.usuario.Find(id);
+                return View(user);
+            }
+        }
+
     }
 }
