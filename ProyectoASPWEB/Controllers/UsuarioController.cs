@@ -76,7 +76,35 @@ namespace ProyectoASPWEB.Controllers
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
-
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Edit(usuario usuarioEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    usuario user = db.usuario.Find(usuarioEdit.id);
+
+                    user.nombre = usuarioEdit.nombre;
+                    user.apellido = usuarioEdit.apellido;
+                    user.email = usuarioEdit.email;
+                    user.fecha_nacimiento = usuarioEdit.fecha_nacimiento;
+                    user.password = usuarioEdit.password;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
     }
 }
