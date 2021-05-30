@@ -116,6 +116,5 @@ namespace ProyectoASPWEB.Controllers
                 return View(user);
             }
         }
-
     }
 }
