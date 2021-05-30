@@ -61,5 +61,22 @@ namespace ProyectoASPWEB.Controllers
             return sb.ToString();
         }
 
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    usuario findUser = db.usuario.Where(a => a.id == id).FirstOrDefault();
+                    return View(findUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+
+        }
     }
 }
