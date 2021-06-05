@@ -95,6 +95,14 @@ namespace ProyectoASPWEB.Controllers
 
         }
 
+        public ActionResult Details(int id)
+        {
 
+            using (var db = new inventario2021_2Entities())
+            {
+                proveedor user = db.proveedor.Find(id);
+                return View(user);
+            }
+        }
     }
 }
