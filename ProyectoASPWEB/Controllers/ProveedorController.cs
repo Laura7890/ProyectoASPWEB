@@ -104,5 +104,16 @@ namespace ProyectoASPWEB.Controllers
                 return View(user);
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                var proveedor = db.proveedor.Find(id);
+                db.proveedor.Remove(proveedor);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
