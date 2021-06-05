@@ -47,5 +47,54 @@ namespace ProyectoASPWEB.Controllers
                 return View();
             }
         }
+
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    proveedor finduser = db.proveedor.Where(a => a.id == id).FirstOrDefault();
+                    return View(finduser);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(proveedor proveedorEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    proveedor user = db.proveedor.Find(proveedorEdit.id);
+
+                    user.nombre = proveedorEdit.nombre;
+                    user.direccion = proveedorEdit.direccion;
+                    user.telefono = proveedorEdit.telefono;
+                    user.nombre_contacto = proveedorEdit.nombre_contacto;
+
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+
+        }
+
+
     }
 }
