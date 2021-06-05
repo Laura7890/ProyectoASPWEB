@@ -67,17 +67,6 @@ namespace ProyectoASPWEB.Controllers
 
         }
 
-        public ActionResult Delete(int id)
-        {
-            using (var db = new inventario2021_2Entities())
-            {
-                var cliente = db.cliente.Find(id);
-                db.cliente.Remove(cliente);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(cliente clienteEdit)
@@ -101,6 +90,15 @@ namespace ProyectoASPWEB.Controllers
                 return View();
             }
 
+        }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                cliente user = db.cliente.Find(id);
+                return View(user);
+            }
         }
     }
 }
