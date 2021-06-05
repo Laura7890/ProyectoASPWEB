@@ -17,5 +17,38 @@ namespace ProyectoASPWEB.Controllers
                 return View(db.cliente.ToList());
             }
         }
+
+        public ActionResult Create()
+
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public ActionResult Create(cliente cliente)
+
+        {
+            if (!ModelState.IsValid)
+                return View();
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+
+                {
+                    db.cliente.Add(cliente);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error" + ex);
+                return View();
+            }
+
+
+        }
     }
 }
