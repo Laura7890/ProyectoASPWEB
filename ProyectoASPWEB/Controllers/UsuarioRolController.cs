@@ -25,5 +25,35 @@ namespace ProyectoASPWEB.Controllers
                 return db.usuario.Find(idUsuarioRol).nombre;
             }
         }
+
+        public ActionResult ListarUsuarioRol()
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return PartialView(db.usuario.ToList());
+            }
+        }
+
+        public static string NombreRol(int idRol)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return db.roles.Find(idRol).descripcion;
+            }
+        }
+
+        public ActionResult ListarRol()
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return PartialView(db.roles.ToList());
+            }
+        }
+
+        public ActionResult Create()
+
+        {
+            return View();
+        }
     }
 }
