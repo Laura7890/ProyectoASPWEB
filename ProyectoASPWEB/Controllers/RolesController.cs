@@ -49,5 +49,46 @@ namespace ProyectoASPWEB.Controllers
             }
 
         }
+
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    roles findUser = db.roles.Where(a => a.id == id).FirstOrDefault();
+                    return View(findUser);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(roles rolesEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    roles user = db.roles.Find(rolesEdit.id);
+
+                    user.descripcion = rolesEdit.descripcion;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
     }
 }
