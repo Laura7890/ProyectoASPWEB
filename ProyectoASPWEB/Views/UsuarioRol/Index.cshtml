@@ -12,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idUsuario)
+            UsuarioRol
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idRol)
+            Rol
         </th>
         <th></th>
     </tr>
@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idUsuario)
+            @ProyectoASPWEB.Controllers.UsuarioRolController.NombreUsuarioRol(item.idUsuario)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.idRol)
