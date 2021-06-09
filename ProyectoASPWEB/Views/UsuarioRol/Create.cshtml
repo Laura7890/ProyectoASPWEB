@@ -15,7 +15,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.idUsuario, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_usuario">Usuario</label>
             <div class="col-md-10">
                 @Html.Action("ListarUsuarioRol")
                 @Html.ValidationMessageFor(model => model.idUsuario, "", new { @class = "text-danger" })
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idRol, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="id_cliente">Cliente</label>
             <div class="col-md-10">
                 @Html.Action("ListarRol")
                 @Html.ValidationMessageFor(model => model.idRol, "", new { @class = "text-danger" })

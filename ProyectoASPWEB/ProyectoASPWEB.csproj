@@ -269,6 +269,7 @@
     <Content Include="Views\Compra\Create.cshtml" />
     <Content Include="Views\Compra\ListarUsuario.cshtml" />
     <Content Include="Views\Compra\ListarCliente.cshtml" />
+    <Content Include="Views\Compra\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
