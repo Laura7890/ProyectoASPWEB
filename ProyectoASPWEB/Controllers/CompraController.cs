@@ -25,5 +25,13 @@ namespace ProyectoASPWEB.Controllers
                 return db.usuario.Find(idUsuario).nombre;
             }
         }
+
+        public static string NombreCliente(int idCliente)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return db.cliente.Find(idCliente).nombre;
+            }
+        }
     }
 }

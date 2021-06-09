@@ -35,10 +35,10 @@
             @Html.DisplayFor(modelItem => item.total)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_usuario)
+            @ProyectoASPWEB.Controllers.CompraController.NombreUsuario(item.id_usuario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id_cliente)
+            @ProyectoASPWEB.Controllers.CompraController.NombreUsuario(item.id_cliente)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
