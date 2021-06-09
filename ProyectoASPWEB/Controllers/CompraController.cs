@@ -127,5 +127,15 @@ namespace ProyectoASPWEB.Controllers
             }
 
         }
+
+        public ActionResult Details(int id)
+        {
+            using (var db = new inventario2021_2Entities())
+
+            {
+                compra compraDetalle = db.compra.Where(a => a.id == id).FirstOrDefault();
+                return View(compraDetalle);
+            }
+        }
     }
 }
