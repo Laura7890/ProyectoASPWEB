@@ -264,6 +264,7 @@
     <Content Include="Views\UsuarioRol\Create.cshtml" />
     <Content Include="Views\UsuarioRol\ListarUsuarioRol.cshtml" />
     <Content Include="Views\UsuarioRol\ListarRol.cshtml" />
+    <Content Include="Views\UsuarioRol\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
