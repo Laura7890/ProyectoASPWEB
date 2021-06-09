@@ -137,5 +137,18 @@ namespace ProyectoASPWEB.Controllers
                 return View(compraDetalle);
             }
         }
+
+        public ActionResult Delete(int id)
+        {
+
+            using (var db = new inventario2021_2Entities())
+            {
+                var compraDelete = db.compra.Find(id);
+                db.compra.Remove(compraDelete);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+        }
     }
 }
