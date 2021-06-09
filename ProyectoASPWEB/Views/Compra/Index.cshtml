@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoASPWEB.Models.usuariorol>
+﻿@model IEnumerable<ProyectoASPWEB.Models.compra>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,16 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th>
             Usuario
         </th>
         <th>
-            Rol
+            Cliente
         </th>
         <th></th>
     </tr>
@@ -23,10 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @ProyectoASPWEB.Controllers.UsuarioRolController.NombreUsuarioRol(item.idUsuario)
+            @Html.DisplayFor(modelItem => item.fecha)
         </td>
         <td>
-            @ProyectoASPWEB.Controllers.UsuarioRolController.NombreRol(item.idRol)
+            @Html.DisplayFor(modelItem => item.total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_usuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_cliente)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
