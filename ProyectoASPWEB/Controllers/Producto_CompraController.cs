@@ -77,6 +77,46 @@ namespace ProyectoASPWEB.Controllers
                 return View();
             }
         }
+
+        public ActionResult Edit(int id)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    producto_compra productoCompra = db.producto_compra.Where(a => a.id == id).FirstOrDefault();
+                    return View(productoCompra);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(producto_compra productoCompraEdit)
+        {
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    var productoCompra = db.producto_compra.Find(productoCompraEdit.id);
+                    productoCompra.id_compra = productoCompraEdit.id_compra;
+                    productoCompra.id_producto = productoCompraEdit.id_producto;
+                    productoCompra.cantidad = productoCompraEdit.cantidad;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
     }
 
 }

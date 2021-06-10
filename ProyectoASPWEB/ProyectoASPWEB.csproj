@@ -276,6 +276,7 @@
     <Content Include="Views\Producto_Compra\Create.cshtml" />
     <Content Include="Views\Producto_Compra\ListarCompra.cshtml" />
     <Content Include="Views\Producto_Compra\ListarProducto.cshtml" />
+    <Content Include="Views\Producto_Compra\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
