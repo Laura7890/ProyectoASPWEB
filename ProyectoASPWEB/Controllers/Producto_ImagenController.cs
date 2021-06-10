@@ -16,5 +16,13 @@ namespace ProyectoASPWEB.Controllers
                 return View(db.producto_imagen.ToList());
             }
         }
+
+        public static string NombreProducto(int idProducto)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return db.producto.Find(idProducto).nombre;
+            }
+        }
     }
 }
