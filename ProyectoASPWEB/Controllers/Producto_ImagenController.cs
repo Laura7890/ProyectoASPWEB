@@ -24,5 +24,41 @@ namespace ProyectoASPWEB.Controllers
                 return db.producto.Find(idProducto).nombre;
             }
         }
+
+        public ActionResult ListarProducto()
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                return PartialView(db.producto.ToList());
+            }
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(producto_imagen newProductoImagen)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                using (var db = new inventario2021_2Entities())
+                {
+                    db.producto_imagen.Add(newProductoImagen);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
     }
 }
