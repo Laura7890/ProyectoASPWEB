@@ -102,7 +102,6 @@ namespace ProyectoASPWEB.Controllers
         }
 
         public ActionResult Details(int id)
-
         {
             using (var db = new inventario2021_2Entities())
 
@@ -110,7 +109,17 @@ namespace ProyectoASPWEB.Controllers
                 producto_imagen producto_imagenDetalle = db.producto_imagen.Where(a => a.id == id).FirstOrDefault();
                 return View(producto_imagenDetalle);
             }
+        }
 
+        public ActionResult Delete(int id)
+        {
+            using (var db = new inventario2021_2Entities())
+            {
+                var product_imagenDelete = db.producto_imagen.Find(id);
+                db.producto_imagen.Remove(product_imagenDelete);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
         }
     }
 }
