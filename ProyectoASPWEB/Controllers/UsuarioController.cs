@@ -11,6 +11,7 @@ namespace ProyectoASPWEB.Controllers
 {
     public class UsuarioController : Controller
     {
+        [Authorize]
         // GET: Usuario
         public ActionResult Index()
         {
@@ -154,6 +155,13 @@ namespace ProyectoASPWEB.Controllers
                     return Login("Verifique sus datos");
                 }
             }
+        }
+
+        [Authorize]
+        public ActionResult CloseSession()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

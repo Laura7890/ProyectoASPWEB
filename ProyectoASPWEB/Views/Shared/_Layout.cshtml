@@ -24,10 +24,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Sobre mi", "About", "Home")</li>
                     <li>@Html.ActionLink("Contactame", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                    <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
+                    }
                     <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
                     <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
-                    <li>@Html.ActionLink("Producto ", "Index", "Producto_Compra")</li>
                     <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
                     <li>@Html.ActionLink("Producto_Imagen", "Index", "Producto_Imagen")</li>
                     <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
