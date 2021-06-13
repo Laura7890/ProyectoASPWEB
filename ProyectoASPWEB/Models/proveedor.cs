@@ -11,7 +11,8 @@ namespace ProyectoASPWEB.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class proveedor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,14 @@ namespace ProyectoASPWEB.Models
         {
             this.producto = new HashSet<producto>();
         }
-    
+
         public int id { get; set; }
+
+        [Required(ErrorMessage = "El nombre no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string nombre { get; set; }
         public string direccion { get; set; }
+
         public string telefono { get; set; }
         public string nombre_contacto { get; set; }
     

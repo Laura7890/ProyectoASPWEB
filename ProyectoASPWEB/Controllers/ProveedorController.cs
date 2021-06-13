@@ -71,6 +71,8 @@ namespace ProyectoASPWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(proveedor proveedorEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021_2Entities())
@@ -81,8 +83,6 @@ namespace ProyectoASPWEB.Controllers
                     user.direccion = proveedorEdit.direccion;
                     user.telefono = proveedorEdit.telefono;
                     user.nombre_contacto = proveedorEdit.nombre_contacto;
-
-
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
