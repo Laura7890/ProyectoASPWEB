@@ -285,6 +285,7 @@
     <Content Include="Views\Producto_Imagen\ListarProducto.cshtml" />
     <Content Include="Views\Producto_Imagen\Edit.cshtml" />
     <Content Include="Views\Producto_Imagen\Details.cshtml" />
+    <Content Include="Views\Producto\Reporte.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
