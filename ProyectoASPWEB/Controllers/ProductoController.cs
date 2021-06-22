@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProyectoASPWEB.Models;
+using Rotativa;
 
 namespace ProyectoASPWEB.Controllers
 {
@@ -150,6 +151,11 @@ namespace ProyectoASPWEB.Controllers
                 ModelState.AddModelError("", "error " + ex);
                 return View();
             }
+        }
+
+        public ActionResult ImprimirReporte()
+        {
+            return new ActionAsPdf("Reporte") { FileName = "reporte.pdf" };
         }
     }
 }
