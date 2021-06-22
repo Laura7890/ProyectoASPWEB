@@ -114,5 +114,10 @@ namespace ProyectoASPWEB.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult Hola()
+        {
+            return View(User);
+        }
     }
 }
