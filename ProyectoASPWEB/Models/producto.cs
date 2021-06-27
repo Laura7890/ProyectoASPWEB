@@ -28,6 +28,8 @@ namespace ProyectoASPWEB.Models
         [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string nombre { get; set; }
         public int percio_unitario { get; set; }
+
+        [Required(ErrorMessage = "El precio unitario no puede ir vacio")]
         public string descripcion { get; set; }
         public int cantidad { get; set; }
         public int id_proveedor { get; set; }

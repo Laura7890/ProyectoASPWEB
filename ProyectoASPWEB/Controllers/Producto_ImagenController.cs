@@ -63,6 +63,7 @@ namespace ProyectoASPWEB.Controllers
 
         public ActionResult Edit(int id)
         {
+
             try
             {
                 using (var db = new inventario2021_2Entities())
@@ -82,6 +83,8 @@ namespace ProyectoASPWEB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(producto_imagen productoImagenEdit)
         {
+            if (!ModelState.IsValid)
+                return View();
             try
             {
                 using (var db = new inventario2021_2Entities())

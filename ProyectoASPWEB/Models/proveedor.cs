@@ -26,9 +26,15 @@ namespace ProyectoASPWEB.Models
         [Required(ErrorMessage = "El nombre no puede ir vacio")]
         [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+
+        [Required(ErrorMessage = "El campo direccion no puede ir vacio")]
         public string direccion { get; set; }
 
+        [Required(ErrorMessage = "El campo telefono no puede ir vacio")]
+        [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string telefono { get; set; }
+
+        [Required(ErrorMessage = "El campo nombre_contacto no puede ir vacio")]
         public string nombre_contacto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

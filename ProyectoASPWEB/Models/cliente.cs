@@ -26,6 +26,8 @@ namespace ProyectoASPWEB.Models
         [Required(ErrorMessage = "El nombre no puede ir vacio")]
         [StringLength(20, ErrorMessage = "supero el limite de 20 caracteres")]
         public string nombre { get; set; }
+
+        [Required(ErrorMessage = "El campo documento no puede ir vacio")]
         public string documento { get; set; }
 
         [EmailAddress]
