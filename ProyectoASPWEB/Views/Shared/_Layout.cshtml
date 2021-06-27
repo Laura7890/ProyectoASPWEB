@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - Inventario Pull and Bear</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link rel="stylesheet" href="~/Content/custom.css">
@@ -21,33 +21,39 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Sistema de Inventario", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Inventario Pull and Bear", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "Sobre mí", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Usuario")</li>
+                    }
 
-                    <li>@Html.ActionLink("Contactame", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Iniciar Sesion", "Login", "Usuario")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                        <li>@Html.ActionLink("Salir", "CloseSession", "Usuario")</li>
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Acerca de", "Sobre mí", "Home")</li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud Tablas<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                                <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
+                                <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
+                                <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
+                                <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
+                                <li>@Html.ActionLink("Producto_Imagen", "Index", "Producto_Imagen")</li>
+                                <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
+                                <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
+                                <li>@Html.ActionLink("Usuario Rol", "Index", "UsuarioRol")</li>
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Cerrar Sesión", "CloseSession", "Usuario")</li>
                     }
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Crud Tablas<span class="glyphicon glyphicon-triangle-bottom"></span></a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
-                            <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                            <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
-                            <li>@Html.ActionLink("Producto", "Index", "Producto")</li>
-                            <li>@Html.ActionLink("Producto_Compra", "Index", "Producto_Compra")</li>
-                            <li>@Html.ActionLink("Producto_Imagen", "Index", "Producto_Imagen")</li>
-                            <li>@Html.ActionLink("Proveedor", "Index", "Proveedor")</li>
-                            <li>@Html.ActionLink("Roles", "Index", "Roles")</li>
-                            <li>@Html.ActionLink("Usuario Rol", "Index", "UsuarioRol")</li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -56,7 +62,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year - Todos los derechos reservados PULL AND BEAR | Razón social: PERMODA LTDA. | Nit: 860516806-5 </p>
         </footer>
     </div>
 

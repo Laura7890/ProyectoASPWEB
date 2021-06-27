@@ -1,3 +1,40 @@
 ﻿body {
     font-family: 'Raleway', sans-serif;
 }
+.container .jumbotron, .container-fluid .jumbotron {
+    background-color: black;
+}
+.jumbotron h1, .jumbotron .h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+}
+.jumbotron p {
+    color: white;
+}
+h2, .h2 {
+    font-size: 30px;
+    color: black;
+}
+p {
+    color: black;
+    font-weight: 500;
+}
+.navbar-inverse {
+    background-color: #fff;
+    border-color: #808080;
+}
+.navbar-inverse .navbar-brand {
+    color: #000;
+    font-weight: 500;
+}
+.navbar-inverse .navbar-brand:hover {
+    color: #808080;
+ }
+.navbar-inverse .navbar-nav > li > a {
+        color: #000;
+        font-weight: 500;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+    color: #808080;
+}
